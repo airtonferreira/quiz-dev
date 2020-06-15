@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
 main() => runApp(QuizApp());
 
@@ -61,7 +62,7 @@ class _QuizAppState extends State<QuizApp> {
           appBar: AppBar(title: Text('Quiz DEV')),
           body: Column(
             children: <Widget>[
-              Text(questions[_selectedRes]),
+              Question(questions[_selectedRes]),
               RaisedButton(
                 onPressed: () => alignItems(),
                 child: Text('Align Items'),
