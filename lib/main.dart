@@ -13,30 +13,40 @@ class _QuizAppState extends State<QuizApp> {
     });
   }
 
+  bool get haveSelectedQuestion {
+    return _selectedQuestion < _questions.length;
+  }
+
+  final _questions = const [
+    {
+      'question': 'Qual propriedade CSS centraliza um elemento?',
+      'responses': ['Align Items', 'Text Align', 'Justify Content'],
+    },
+    {
+      'question': 'Qual tag HTML tem propriedades de mídia?',
+      'responses': ['div', 'video', 'iframe'],
+    }
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final questions = [
-      {
-        'question': 'Qual propriedade CSS centraliza um elemento?',
-        'responses': ['Align Items', 'Text Align', 'Justify Content'],
-      },
-      {
-        'question': 'Qual tag HTML tem propriedades de mídia?',
-        'responses': ['div', 'video', 'iframe'],
-      }
-    ];
-
-    List<String> responses = questions[_selectedQuestion]['responses'];
+    List<String> responses = haveSelectedQuestion
+        ? _questions[_selectedQuestion]['responses']
+        : null;
 
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(title: Text('Quiz DEV')),
-          body: Column(
-            children: <Widget>[
-              Question(questions[_selectedQuestion]['question']),
-              ...responses.map((txt) => Response(txt, _response)).toList(),
-            ],
-          )),
+          body: haveSelectedQuestion
+              ? Column(
+                  children: <Widget>[
+                    Question(_questions[_selectedQuestion]['question']),
+                    ...responses
+                        .map((txt) => Response(txt, _response))
+                        .toList(),
+                  ],
+                )
+              : null),
       debugShowCheckedModeBanner: false,
     );
   }
