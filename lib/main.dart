@@ -5,11 +5,11 @@ import './question.dart';
 main() => runApp(QuizApp());
 
 class _QuizAppState extends State<QuizApp> {
-  var _selectedRes = 0;
+  var _selectedQuestion = 0;
 
   void _response() {
     setState(() {
-      _selectedRes++;
+      _selectedQuestion++;
     });
   }
 
@@ -26,15 +26,15 @@ class _QuizAppState extends State<QuizApp> {
       }
     ];
 
+    List<String> responses = questions[_selectedQuestion]['responses'];
+
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(title: Text('Quiz DEV')),
           body: Column(
             children: <Widget>[
-              Question(questions[_selectedRes]['question']),
-              Response('Align Items', _response),
-              Response('Text Align', _response),
-              Response('Justify Content', _response),
+              Question(questions[_selectedQuestion]['question']),
+              ...responses.map((txt) => Response(txt, _response)).toList(),
             ],
           )),
       debugShowCheckedModeBanner: false,
