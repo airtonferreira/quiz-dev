@@ -46,7 +46,16 @@ class _QuizAppState extends State<QuizApp> {
                         .toList(),
                   ],
                 )
-              : null),
+              : Center(
+                  child: Text(
+                    'PARABÉNS!!!',
+                    style: TextStyle(
+                        fontSize: 32,
+                        fontFamily: 'Monaco',
+                        color: Colors.green,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
       debugShowCheckedModeBanner: false,
     );
   }
