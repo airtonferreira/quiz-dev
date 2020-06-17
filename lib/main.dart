@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_quiz/response.dart';
 import 'package:projeto_quiz/result.dart';
-import './question.dart';
+import './quiz.dart';
 
 main() => runApp(QuizApp());
 
 class _QuizAppState extends State<QuizApp> {
   var _selectedQuestion = 0;
 
+  bool get haveSelectedQuestion {
+    return _selectedQuestion < _questions.length;
+  }
+
   void _response() {
     setState(() {
       _selectedQuestion++;
     });
-  }
-
-  bool get haveSelectedQuestion {
-    return _selectedQuestion < _questions.length;
   }
 
   final _questions = const [
@@ -31,21 +30,14 @@ class _QuizAppState extends State<QuizApp> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> responses = haveSelectedQuestion
-        ? _questions[_selectedQuestion]['responses']
-        : null;
-
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(title: Text('Quiz DEV')),
           body: haveSelectedQuestion
-              ? Column(
-                  children: <Widget>[
-                    Question(_questions[_selectedQuestion]['question']),
-                    ...responses
-                        .map((txt) => Response(txt, _response))
-                        .toList(),
-                  ],
+              ? Quiz(
+                  questions: _questions,
+                  selectedQuestion: _selectedQuestion,
+                  response: _response,
                 )
               : Result()),
       debugShowCheckedModeBanner: false,
