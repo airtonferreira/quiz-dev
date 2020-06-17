@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_quiz/response.dart';
+import 'package:projeto_quiz/result.dart';
 import './question.dart';
 
 main() => runApp(QuizApp());
@@ -46,16 +47,7 @@ class _QuizAppState extends State<QuizApp> {
                         .toList(),
                   ],
                 )
-              : Center(
-                  child: Text(
-                    'PARABÉNS!!!',
-                    style: TextStyle(
-                        fontSize: 32,
-                        fontFamily: 'Monaco',
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold),
-                  ),
-                )),
+              : Result()),
       debugShowCheckedModeBanner: false,
     );
   }
