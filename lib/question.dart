@@ -1,23 +1,29 @@
-import 'package:flutter/material.dart';
+class Question {
+  String question;
+  String answer1;
+  String answer2;
 
-class Question extends StatelessWidget {
-  final String txt;
+  Question({
+    this.question,
+    this.answer1,
+    this.answer2,
+  });
 
-  Question(this.txt);
+  Map<String, dynamic> toMap() {
+    return {
+      'question': question,
+      'answer1': answer1,
+      'answer2': answer2,
+    };
+  }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.all(20),
-      child: Text(
-        txt,
-        style: TextStyle(
-          fontFamily: 'Monaco',
-          fontSize: 28,
-        ),
-        textAlign: TextAlign.center,
-      ),
+  static Question fromMap(Map<String, dynamic> map) {
+    if (map == null) return null;
+
+    return Question(
+      question: map['question'],
+      answer1: map['answer1'],
+      answer2: map['answer2'],
     );
   }
 }
