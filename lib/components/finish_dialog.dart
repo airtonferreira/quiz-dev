@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projeto_quiz/views/quiz_view.dart';
 import 'package:share/share.dart';
 
 class FinishDialog {
