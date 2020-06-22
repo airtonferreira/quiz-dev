@@ -31,31 +31,33 @@ class _QuizViewState extends State<QuizView> {
     });
   }
 
-
   @override
-  Widget build(BuildContext context {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey.shade900,
-        title: Text('devQUIZ ( ${_scoreKeeper.length}/${_controller.questionNumber} )'),
+        title: Text(
+            'devQUIZ ( ${_scoreKeeper.length}/${_controller.questionNumber} )'),
         centerTitle: true,
         elevation: 0.0,
       ),
       backgroundColor: Colors.grey.shade900,
-      body: SafeArea(child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: _buildQuiz(),
-      ),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          child: _buildQuiz(),
+        ),
       ),
     );
   }
 
   _buildQuiz() {
-    if(_loading) return CenteredCircularProgress();
+    if (_loading) return CenteredCircularProgress();
 
-    if(_controller.questionNumber == 0) {
-      return CenteredMessage('Não há perguntas',
-      icon: Icons.warning,
+    if (_controller.questionNumber == 0) {
+      return CenteredMessage(
+        'Não há perguntas',
+        icon: Icons.warning,
       );
     }
 
@@ -72,15 +74,21 @@ class _QuizViewState extends State<QuizView> {
   }
 
   _buildQuestion(String question) {
-    return Expanded(flex: 5, child: Padding(padding: EdgeInsets.symmetric(vertical: 16.0),
-    child: Center(
-      child: Text(question, textAlign: TextAlign.center, style: TextStyle(
-        fontSize: 25.0,
-        color: Colors.white,
+    return Expanded(
+      flex: 5,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 16.0),
+        child: Center(
+          child: Text(
+            question,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 25.0,
+              color: Colors.white,
+            ),
+          ),
+        ),
       ),
-      ),
-    ),
-    ),
     );
   }
 
@@ -125,11 +133,9 @@ class _QuizViewState extends State<QuizView> {
                   if (_scoreKeeper.length < _controller.questionNumber) {
                     _controller.nextQuestion();
                   } else {
-                    FinishDialog.show(
-                      context,
-                      hitNumber: _controller.hitNumber,
-                      questionNumber:  _controller.questionNumber
-                    );
+                    FinishDialog.show(context,
+                        hitNumber: _controller.hitNumber,
+                        questionNumber: _controller.questionNumber);
                   }
                 });
               },
@@ -148,5 +154,4 @@ class _QuizViewState extends State<QuizView> {
       ),
     );
   }
-
 }
