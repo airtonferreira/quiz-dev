@@ -34,21 +34,34 @@ class _QuizViewState extends State<QuizView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey.shade900,
-        title: Text(
-            'devQUIZ ( ${_scoreKeeper.length}/${_controller.questionNumber} )'),
-        centerTitle: true,
-        elevation: 0.0,
-      ),
-      backgroundColor: Colors.grey.shade900,
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
-          child: _buildQuiz(),
+        appBar: AppBar(
+          backgroundColor: Colors.grey.shade900,
+          title: Text(
+              'devQUIZ ( ${_scoreKeeper.length}/${_controller.questionNumber} )'),
+          centerTitle: true,
+          elevation: 0.0,
         ),
-      ),
-    );
+        backgroundColor: Colors.white,
+        body: Container(
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 300,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/background.png'),
+                        fit: BoxFit.fill)),
+                child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      child: _buildQuiz(),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ));
   }
 
   _buildQuiz() {
@@ -84,7 +97,7 @@ class _QuizViewState extends State<QuizView> {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 25.0,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
         ),
