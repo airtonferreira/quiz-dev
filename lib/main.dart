@@ -8,6 +8,7 @@ class _QuizAppState extends State<QuizApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'quizDEV',
+      theme: ThemeData(fontFamily: 'IBMPlexMono'),
       home: QuizView(),
       debugShowCheckedModeBanner: false,
     );
