@@ -1,6 +1,6 @@
 # quizDEV
 
-A new Flutter project for begginers developers.
+A new Flutter project for beginners developers.
 
 ## Getting Started
 
