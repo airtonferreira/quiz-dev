@@ -49,7 +49,7 @@ class _QuizViewState extends State<QuizView> {
                 height: 300,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/background.png'),
+                        image: AssetImage('assets/undraw_mello_otq1.png'),
                         fit: BoxFit.fill)),
                 child: Stack(
                   children: <Widget>[
