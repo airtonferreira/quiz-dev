@@ -1,6 +1,6 @@
-# projeto_quiz
+# quizDEV
 
-A new Flutter project.
+A new Flutter project for beginners developers.
 
 ## Getting Started
 
