@@ -108,6 +108,7 @@ class _QuizViewState extends State<QuizView> {
                 question,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
+                    fontStyle: FontStyle.italic,
                     fontSize: 18,
                     color: Colors.white,
                     fontWeight: FontWeight.w900),
@@ -131,56 +132,114 @@ class _QuizViewState extends State<QuizView> {
     );
   }
 
+  // _buildAnswerButton(String answer) {
+  //   return Expanded(
+  //     child: Padding(
+  //       padding: EdgeInsets.symmetric(vertical: 8.0),
+  //       child: GestureDetector(
+  //         child: Container(
+  //           padding: EdgeInsets.all(4.0),
+  //           color: Color.fromRGBO(14, 16, 19, 1),
+  //           child: Center(
+  //             child: AutoSizeText(
+  //               answer,
+  //               maxLines: 2,
+  //               minFontSize: 10.0,
+  //               maxFontSize: 32.0,
+  //               textAlign: TextAlign.center,
+  //               style: TextStyle(
+  //                 color: Colors.white,
+  //                 fontSize: 20,
+  //               ),
+  //             ),
+  //           ),
+  //         ),
+  //         onTap: () {
+  //           bool correct = _controller.correctAnswer(answer);
+
+  //           ResultDialog.show(
+  //             context,
+  //             question: _controller.question,
+  //             correct: correct,
+  //             onNext: () {
+  //               setState(() {
+  //                 _scoreKeeper.add(
+  //                   Icon(
+  //                     correct ? Icons.check : Icons.close,
+  //                     color: correct ? Colors.green : Colors.red,
+  //                   ),
+  //                 );
+
+  //                 if (_scoreKeeper.length < _controller.questionNumber) {
+  //                   _controller.nextQuestion();
+  //                 } else {
+  //                   FinishDialog.show(context,
+  //                       hitNumber: _controller.hitNumber,
+  //                       questionNumber: _controller.questionNumber);
+  //                 }
+  //               });
+  //             },
+  //           );
+  //         },
+  //       ),
+  //     ),
+  //   );
+  // }
+
   _buildAnswerButton(String answer) {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.0),
-        child: GestureDetector(
-          child: Container(
-            padding: EdgeInsets.all(4.0),
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          RaisedButton(
+            elevation: 15,
+            textColor: Colors.white,
             color: Color.fromRGBO(14, 16, 19, 1),
-            child: Center(
-              child: AutoSizeText(
-                answer,
-                maxLines: 2,
-                minFontSize: 10.0,
-                maxFontSize: 32.0,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
+            child: Container(
+              padding: EdgeInsets.all(4),
+              child: Center(
+                child: AutoSizeText(
+                  answer,
+                  maxLines: 4,
+                  minFontSize: 10.0,
+                  maxFontSize: 32.0,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
+            onPressed: () {
+              bool correct = _controller.correctAnswer(answer);
+
+              ResultDialog.show(
+                context,
+                question: _controller.question,
+                correct: correct,
+                onNext: () {
+                  setState(() {
+                    _scoreKeeper.add(
+                      Icon(
+                        correct ? Icons.check : Icons.close,
+                        color: correct ? Colors.green : Colors.red,
+                      ),
+                    );
+
+                    if (_scoreKeeper.length < _controller.questionNumber) {
+                      _controller.nextQuestion();
+                    } else {
+                      FinishDialog.show(context,
+                          hitNumber: _controller.hitNumber,
+                          questionNumber: _controller.questionNumber);
+                    }
+                  });
+                },
+              );
+            },
           ),
-          onTap: () {
-            bool correct = _controller.correctAnswer(answer);
-
-            ResultDialog.show(
-              context,
-              question: _controller.question,
-              correct: correct,
-              onNext: () {
-                setState(() {
-                  _scoreKeeper.add(
-                    Icon(
-                      correct ? Icons.check : Icons.close,
-                      color: correct ? Colors.green : Colors.red,
-                    ),
-                  );
-
-                  if (_scoreKeeper.length < _controller.questionNumber) {
-                    _controller.nextQuestion();
-                  } else {
-                    FinishDialog.show(context,
-                        hitNumber: _controller.hitNumber,
-                        questionNumber: _controller.questionNumber);
-                  }
-                });
-              },
-            );
-          },
-        ),
+        ],
       ),
     );
   }
