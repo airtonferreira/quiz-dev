@@ -41,24 +41,29 @@ class _QuizViewState extends State<QuizView> {
           centerTitle: true,
           elevation: 0.0,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(27, 29, 32, 1),
         body: Container(
           child: Column(
             children: <Widget>[
               Container(
-                height: 300,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/undraw_mello_otq1.png'),
-                        fit: BoxFit.cover)),
+                height: 600,
+                // decoration: BoxDecoration(
+                //   image: DecorationImage(
+                //     image: AssetImage('assets/background.png'),
+                //     fit: BoxFit.fill,
+                //   ),
+                // ),
                 child: Stack(
                   children: <Widget>[
                     Positioned(
-                      child: _buildQuiz(),
-                    )
+                        child: Container(
+                      child: Center(
+                        child: _buildQuiz(),
+                      ),
+                    ))
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ));
@@ -88,20 +93,41 @@ class _QuizViewState extends State<QuizView> {
 
   _buildQuestion(String question) {
     return Expanded(
-      flex: 5,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 16.0),
-        child: Center(
-          child: Text(
-            question,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 25.0,
-              color: Colors.black,
-            ),
+      flex: 2,
+      child: Card(
+        color: Color.fromRGBO(40, 42, 45, 1),
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        elevation: 15,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                question,
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w900),
+              ),
+            ],
           ),
         ),
       ),
+
+      // Padding(
+      //   padding: EdgeInsets.symmetric(vertical: 16.0),
+      //   child: Center(
+      //     child: Text(
+      //       question,
+      //       textAlign: TextAlign.center,
+      //       style: TextStyle(
+      //           fontSize: 20, color: Colors.white, fontWeight: FontWeight.w900),
+      //     ),
+      //   ),
+      // ),
     );
   }
 
@@ -112,7 +138,7 @@ class _QuizViewState extends State<QuizView> {
         child: GestureDetector(
           child: Container(
             padding: EdgeInsets.all(4.0),
-            color: Colors.blue,
+            color: Color.fromRGBO(14, 16, 19, 1),
             child: Center(
               child: AutoSizeText(
                 answer,
