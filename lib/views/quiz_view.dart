@@ -117,86 +117,22 @@ class _QuizViewState extends State<QuizView> {
           ),
         ),
       ),
-
-      // Padding(
-      //   padding: EdgeInsets.symmetric(vertical: 16.0),
-      //   child: Center(
-      //     child: Text(
-      //       question,
-      //       textAlign: TextAlign.center,
-      //       style: TextStyle(
-      //           fontSize: 20, color: Colors.white, fontWeight: FontWeight.w900),
-      //     ),
-      //   ),
-      // ),
     );
   }
 
-  // _buildAnswerButton(String answer) {
-  //   return Expanded(
-  //     child: Padding(
-  //       padding: EdgeInsets.symmetric(vertical: 8.0),
-  //       child: GestureDetector(
-  //         child: Container(
-  //           padding: EdgeInsets.all(4.0),
-  //           color: Color.fromRGBO(14, 16, 19, 1),
-  //           child: Center(
-  //             child: AutoSizeText(
-  //               answer,
-  //               maxLines: 2,
-  //               minFontSize: 10.0,
-  //               maxFontSize: 32.0,
-  //               textAlign: TextAlign.center,
-  //               style: TextStyle(
-  //                 color: Colors.white,
-  //                 fontSize: 20,
-  //               ),
-  //             ),
-  //           ),
-  //         ),
-  //         onTap: () {
-  //           bool correct = _controller.correctAnswer(answer);
-
-  //           ResultDialog.show(
-  //             context,
-  //             question: _controller.question,
-  //             correct: correct,
-  //             onNext: () {
-  //               setState(() {
-  //                 _scoreKeeper.add(
-  //                   Icon(
-  //                     correct ? Icons.check : Icons.close,
-  //                     color: correct ? Colors.green : Colors.red,
-  //                   ),
-  //                 );
-
-  //                 if (_scoreKeeper.length < _controller.questionNumber) {
-  //                   _controller.nextQuestion();
-  //                 } else {
-  //                   FinishDialog.show(context,
-  //                       hitNumber: _controller.hitNumber,
-  //                       questionNumber: _controller.questionNumber);
-  //                 }
-  //               });
-  //             },
-  //           );
-  //         },
-  //       ),
-  //     ),
-  //   );
-  // }
-
   _buildAnswerButton(String answer) {
-    return Center(
+    return Container(
+      margin: const EdgeInsets.only(top: 20.0, left: 20, right: 20),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           RaisedButton(
+            padding: const EdgeInsets.only(),
             elevation: 15,
             textColor: Colors.white,
-            color: Color.fromRGBO(14, 16, 19, 1),
+            color: Color.fromRGBO(155, 48, 249, 1),
             child: Container(
-              padding: EdgeInsets.all(4),
+              padding: EdgeInsets.all(0),
               child: Center(
                 child: AutoSizeText(
                   answer,
