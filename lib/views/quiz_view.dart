@@ -162,9 +162,11 @@ class _QuizViewState extends State<QuizView> {
                 onNext: () {
                   setState(() {
                     _scoreKeeper.add(
-                      Icon(
-                        correct ? Icons.check : Icons.close,
-                        color: correct ? Colors.green : Colors.red,
+                      Flexible(
+                        child: Icon(
+                          correct ? Icons.check : Icons.close,
+                          color: correct ? Colors.green : Colors.red,
+                        ),
                       ),
                     );
 
