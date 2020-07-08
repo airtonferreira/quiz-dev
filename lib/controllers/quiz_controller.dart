@@ -3,7 +3,7 @@ import 'package:projeto_quiz/models/question.dart';
 import 'package:projeto_quiz/services/quiz_service.dart';
 
 class QuizController {
-  List<Question> _questionDb;
+  List<Question> _questionDb = [];
 
   Random _random = new Random();
   int questionIndex = 0;
