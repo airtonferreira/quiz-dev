@@ -17,7 +17,7 @@ class QuizController {
     questionIndex = 0;
     hitNumber = 0;
     _questionDb = await QuizService.fetch();
-    print('Number of questions: ${_questionDb.length}');
+    // print('Number of questions: ${_questionDb.length}');
     _questionDb.shuffle();
     _shiftAnswer = _random.nextBool();
   }
