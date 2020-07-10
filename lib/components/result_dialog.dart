@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_quiz/models/question.dart';
+import 'package:quiz_dev/models/question.dart';
 
 class ResultDialog {
   static Future show(BuildContext context,

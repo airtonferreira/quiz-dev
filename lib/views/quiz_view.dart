@@ -1,8 +1,8 @@
-import 'package:projeto_quiz/components/centered_circular_progress.dart';
-import 'package:projeto_quiz/components/centered_message.dart';
-import 'package:projeto_quiz/components/finish_dialog.dart';
-import 'package:projeto_quiz/components/result_dialog.dart';
-import 'package:projeto_quiz/controllers/quiz_controller.dart';
+import 'package:quiz_dev/components/centered_circular_progress.dart';
+import 'package:quiz_dev/components/centered_message.dart';
+import 'package:quiz_dev/components/finish_dialog.dart';
+import 'package:quiz_dev/components/result_dialog.dart';
+import 'package:quiz_dev/controllers/quiz_controller.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 

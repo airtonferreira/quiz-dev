@@ -1,6 +1,6 @@
 import 'dart:math';
-import 'package:projeto_quiz/models/question.dart';
-import 'package:projeto_quiz/services/quiz_service.dart';
+import 'package:quiz_dev/models/question.dart';
+import 'package:quiz_dev/services/quiz_service.dart';
 
 class QuizController {
   List<Question> _questionDb = [];

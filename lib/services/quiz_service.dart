@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:projeto_quiz/models/question.dart';
+import 'package:quiz_dev/models/question.dart';
 
 class QuizService {
   static Future<List<Question>> fetch() async {
