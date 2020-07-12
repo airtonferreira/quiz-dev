@@ -57,7 +57,8 @@ class FinishDialog {
               FlatButton(
                 child: const Text('COMPARTILHAR'),
                 onPressed: () {
-                  Share.share('devQUIZ. Você acertou $hitNumber de 10!! :D');
+                  Share.share(
+                      'devQUIZ. Você acertou $hitNumber de $questionNumber!! :D');
                 },
               ),
               FlatButton(
